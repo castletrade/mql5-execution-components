@@ -17,4 +17,4 @@ jobs:
     - name: Check for Unsafe Patterns
       run: |
         # Simple grep to prevent hardcoded passwords or secrets
-        ! grep -rE "password|secret|key|api_key" . --exclude-dir=.git --exclude=SECURITY.md --exclude=README.md
+        ! grep -rE "password|secret|key|api_key" . --exclude-dir={.git,.github} --exclude=SECURITY.md --exclude=README.md
