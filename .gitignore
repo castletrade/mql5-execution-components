@@ -1,0 +1,9 @@
+# MetaTrader 5 Git Ignore
+*.ex5
+*.log
+*.ini
+MQL5/Logs/*
+MQL5/Files/*
+MQL5/Profiles/*
+.cache/
+temp/
