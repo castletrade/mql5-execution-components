@@ -1,0 +1,20 @@
+name: Institutional Policy Check
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Verify Documentation Presence
+      run: |
+        ls README.md LICENSE SECURITY.md
+        
+    - name: Check for Unsafe Patterns
+      run: |
+        # Simple grep to prevent hardcoded passwords or secrets
+        ! grep -rE "password|secret|key|api_key" . --exclude-dir=.git --exclude=SECURITY.md --exclude=README.md
